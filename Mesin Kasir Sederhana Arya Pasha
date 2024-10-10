@@ -20,7 +20,6 @@ void print_receipt(struct Item items[], int itemCount, float discount) {
     
     printf("\n%-30s %10d\n", "Total Harga Sebelum Diskon", total_price);
     
-    // Hitung diskon
     int discount_amount = (int)(total_price * (discount / 100));
     int final_price = total_price - discount_amount;
     
@@ -30,21 +29,18 @@ void print_receipt(struct Item items[], int itemCount, float discount) {
 }
 
 int main() {
-    struct Item items[10];  // Array untuk menyimpan maksimal 10 item
+    struct Item items[10];  
     int itemCount;
     float discount;
 
-    // Menerima input jumlah item
     printf("Masukkan jumlah item (maksimal 10): ");
     scanf("%d", &itemCount);
     
-    // Batasi jumlah item maksimal 10
     if (itemCount < 1 || itemCount > 10) {
         printf("Jumlah item harus antara 1 dan 10.\n");
         return 1;
     }
 
-    // Menerima input barang
     for (int i = 0; i < itemCount; i++) {
         printf("Masukkan nama barang ke-%d: ", i + 1);
         scanf("%s", items[i].name);
@@ -54,16 +50,11 @@ int main() {
         scanf("%d", &items[i].quantity);
     }
 
-    // Menerima input diskon
     printf("Masukkan diskon (0-100): ");
     scanf("%f", &discount);
 
-    // Menampilkan struk belanja
     print_receipt(items, itemCount, discount);
 
     return 0;
 }
 
-printf("\nTotal Belanja: Rp%.2f\n", total);: Menampilkan total belanja dengan format dua angka desimal (%.2f).
-
-Bagian ini menampilkan semua informasi nama barang dan harga barang yang dimasukkan pengguna dalam bentuk struk belanja yang rapi.
